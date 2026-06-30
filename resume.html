@@ -1,0 +1,235 @@
+---
+permalink: /resume
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ site.data.resume.name }} — Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 10pt;
+      color: #1a1a1a;
+      background: #efefef;
+      padding: 32px 16px;
+    }
+
+    /* Screen: document view */
+    .page {
+      background: white;
+      max-width: 8.5in;
+      margin: 0 auto;
+      padding: 0.75in 0.875in;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.12);
+      min-height: 11in;
+    }
+
+    /* Toolbar (hidden when printing) */
+    .toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 28px;
+    }
+
+    .toolbar a {
+      font-size: 12px;
+      color: #888;
+      text-decoration: none;
+    }
+
+    .toolbar a:hover { color: #1a1a1a; }
+
+    .print-btn {
+      font-size: 12px;
+      color: #888;
+      background: none;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 4px 10px;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .print-btn:hover { color: #1a1a1a; border-color: #aaa; }
+
+    /* Resume header */
+    .resume-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: 26pt;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+
+    .contact {
+      text-align: right;
+      font-size: 9pt;
+      color: #333;
+      line-height: 2;
+    }
+
+    /* Sections */
+    section {
+      margin-top: 16px;
+      padding-top: 8px;
+      border-top: 1.5px solid #1a1a1a;
+    }
+
+    h2 {
+      font-size: 8pt;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    /* Entries */
+    .entry {
+      margin-bottom: 12px;
+    }
+
+    .entry-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .entry-top strong {
+      font-size: 10pt;
+      font-weight: 600;
+    }
+
+    .entry-top .location {
+      font-size: 9.5pt;
+      color: #1a1a1a;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .entry-dates {
+      font-size: 9pt;
+      color: #555;
+      font-style: italic;
+      margin-bottom: 5px;
+    }
+
+    ul {
+      padding-left: 16px;
+    }
+
+    li {
+      font-size: 9.5pt;
+      line-height: 1.55;
+      margin-bottom: 2px;
+    }
+
+    .stack {
+      font-size: 9.5pt;
+      line-height: 1.6;
+    }
+
+    /* Print */
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+
+      .page {
+        box-shadow: none;
+        padding: 0;
+        max-width: none;
+        min-height: auto;
+      }
+
+      .toolbar {
+        display: none;
+      }
+
+      @page {
+        size: letter;
+        margin: 0.75in 0.875in;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="toolbar">
+      <a href="/">&larr; {{ site.data.resume.name }}</a>
+      <button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
+    </div>
+
+    <div class="resume-header">
+      <h1>{{ site.data.resume.name }}</h1>
+      <div class="contact">
+        <span>{{ site.data.resume.email }}</span><br>
+        <span>{{ site.data.resume.github }}</span>
+      </div>
+    </div>
+
+    {% if site.data.resume.experience %}
+    <section>
+      <h2>Work Experience</h2>
+      {% for job in site.data.resume.experience %}
+      <div class="entry">
+        <div class="entry-top">
+          <strong>{{ job.company }}</strong>
+          <span class="location">{{ job.location }}</span>
+        </div>
+        <div class="entry-top">
+          <strong>{{ job.title }}</strong>
+          <span class="location">{{ job.dates }}</span>
+        </div>
+        {% if job.bullets.size > 0 %}
+        <ul>
+          {% for bullet in job.bullets %}
+          <li>{{ bullet }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </section>
+    {% endif %}
+
+    <section>
+      <h2>Education</h2>
+      {% for edu in site.data.resume.education %}
+      <div class="entry">
+        <div class="entry-top">
+          <strong>{{ edu.school }}</strong>
+          <span class="location">{{ edu.location }}</span>
+        </div>
+        <div class="entry-top">
+          <span>{{ edu.degree }}</span>
+          <span class="location">{{ edu.year }}</span>
+        </div>
+      </div>
+      {% endfor %}
+    </section>
+
+    {% if site.data.resume.stack %}
+    <section>
+      <h2>Current Tech Stack</h2>
+      <p class="stack">{{ site.data.resume.stack }}</p>
+    </section>
+    {% endif %}
+  </div>
+</body>
+</html>

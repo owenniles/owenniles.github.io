@@ -1,0 +1,16 @@
+name: Owen Niles
+email: owenmniles@gmail.com
+github: github.com/owenniles
+
+experience:
+  - company: Moment
+    title: Founding Software Engineer
+    location: New York, NY
+    dates: Dec 2022–Jun 2026
+    bullets: []
+
+education:
+  - school: Harvard College
+    degree: "Bachelor of Arts (A.B.) in Computer Science; Secondary Field in Philosophy"
+    location: Cambridge, MA
+    year: "2022"

@@ -1,0 +1,79 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ site.data.resume.name }}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <span class="name">{{ site.data.resume.name }}</span>
+    <nav>
+      <a href="mailto:{{ site.data.resume.email }}">Email</a>
+      <a href="https://{{ site.data.resume.github }}" target="_blank" rel="noopener">GitHub</a>
+      <a href="/resume">Resume</a>
+    </nav>
+  </header>
+
+  <main>
+    {% if site.data.resume.about %}
+    <section id="about">
+      {% for paragraph in site.data.resume.about %}
+      <p>{{ paragraph }}</p>
+      {% endfor %}
+    </section>
+    {% endif %}
+
+    {% if site.data.resume.experience %}
+    <section id="experience">
+      <h2>Experience</h2>
+      {% for job in site.data.resume.experience %}
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">{{ job.company }}</span>
+          <span class="entry-meta">{{ job.location }}</span>
+        </div>
+        <div class="entry-header">
+          <span class="entry-title">{{ job.title }}</span>
+          <span class="entry-meta">{{ job.dates }}</span>
+        </div>
+        {% if job.bullets.size > 0 %}
+        <ul>
+          {% for bullet in job.bullets %}
+          <li>{{ bullet }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </section>
+    {% endif %}
+
+    <section id="education">
+      <h2>Education</h2>
+      {% for edu in site.data.resume.education %}
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">{{ edu.school }}</span>
+          <span class="entry-meta">{{ edu.location }}</span>
+        </div>
+        <div class="entry-header">
+          <span class="entry-degree">{{ edu.degree }}</span>
+          <span class="entry-meta">{{ edu.year }}</span>
+        </div>
+      </div>
+      {% endfor %}
+    </section>
+  </main>
+
+  <footer>
+    <span>&copy; {{ site.time | date: '%Y' }} {{ site.data.resume.name }}</span>
+  </footer>
+</body>
+</html>
