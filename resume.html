@@ -143,6 +143,12 @@ permalink: /resume
       line-height: 1.6;
     }
 
+    .entry-description {
+      font-size: 9pt;
+      color: #555;
+      font-weight: 400;
+    }
+
     /* Print */
     @media print {
       body {
@@ -189,7 +195,7 @@ permalink: /resume
       {% for job in site.data.resume.experience %}
       <div class="entry">
         <div class="entry-top">
-          <strong>{{ job.company }}</strong>
+          <span><strong>{{ job.company }}</strong>{% if job.description %} <em class="entry-description">· {{ job.description }}</em>{% endif %}</span>
           <span class="location">{{ job.location }}</span>
         </div>
         <div class="entry-top">
@@ -226,7 +232,7 @@ permalink: /resume
 
     {% if site.data.resume.stack %}
     <section>
-      <h2>Current Tech Stack</h2>
+      <h2>Favorite Tools</h2>
       <p class="stack">{{ site.data.resume.stack }}</p>
     </section>
     {% endif %}
