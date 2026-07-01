@@ -81,6 +81,12 @@ section {
   margin-top: 12px;
 }
 
+/* ── Post ── */
+
+#post ul + p {
+  margin-top: 24px;
+}
+
 /* ── Section headings ── */
 
 h2 {
@@ -122,6 +128,12 @@ h2 {
 .entry-degree {
   font-size: 13px;
   color: var(--muted);
+}
+
+.entry-description {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 400;
 }
 
 ul {

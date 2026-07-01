@@ -1,0 +1,48 @@
+---
+permalink: /more-about-me
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ site.data.resume.name }} — More About Me</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <a href="/" class="name" style="text-decoration: none;">&larr; {{ site.data.resume.name }}</a>
+  </header>
+
+  <main>
+    <section id="post">
+      <h2>More about me</h2>
+
+      <p>At this point, you already know that I'm an NYC-based software engineer. Here's a little more about me:</p>
+
+      <ul>
+        <li>I value self-sufficiency. I love that there are things nobody can take away from me because I'm self-sufficient. If I bring tire levers, CO₂, and a spare tube on a bike ride, I'm self-sufficient in case I get a flat; Ollama on my MacBook Air is an all-you-can-inference buffet even when Claude is down — provided I run at most one &lt;1B-parameter model at a time.</li>
+
+        <li>I love understanding how things work. Understanding how things work facilitates self-sufficiency. When something breaks, understanding how it works gives me the power to work around the issue or fix it without having to wait for someone else to come fix it for me.</li>
+
+        <li>I love programming. I can read the source code for a piece of software and understand exactly how it works. Even when I don't have the source, I love the thrill of successfully reverse engineering a binary. Computers keep no secrets from programmers.</li>
+
+        <li>I love that there are so many resources freely available to help programmers learn industry standards. From IETF RFCs to open source software, I think it's beautiful that the tech industry doesn't try to keep secrets about how things work.</li>
+
+        <li>It's exciting that technology companies are nevertheless among the most profitable in the world. It reminds me of how the best professors in college could write open-note tests I would still get C's on.</li>
+
+        <li>In my free time, I like to run.</li>
+      </ul>
+
+      <p>You knew going into this that I was an NYC-based software engineer. It's not my fault if you were expecting more! ¯\_(ツ)_/¯</p>
+    </section>
+  </main>
+
+  <footer>
+    <span>&copy; {{ site.time | date: '%Y' }} {{ site.data.resume.name }}</span>
+  </footer>
+</body>
+</html>

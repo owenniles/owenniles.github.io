@@ -24,9 +24,7 @@
   <main>
     {% if site.data.resume.about %}
     <section id="about">
-      {% for paragraph in site.data.resume.about %}
-      <p>{{ paragraph }}</p>
-      {% endfor %}
+      {{ site.data.resume.about | markdownify }}
     </section>
     {% endif %}
 
@@ -36,7 +34,7 @@
       {% for job in site.data.resume.experience %}
       <div class="entry">
         <div class="entry-header">
-          <span class="entry-title">{{ job.company }}</span>
+          <span class="entry-title">{{ job.company }}{% if job.description %} <em class="entry-description">· {{ job.description }}</em>{% endif %}</span>
           <span class="entry-meta">{{ job.location }}</span>
         </div>
         <div class="entry-header">
@@ -70,6 +68,12 @@
       </div>
       {% endfor %}
     </section>
+    {% if site.data.resume.stack %}
+    <section id="stack">
+      <h2>Favorite Tools</h2>
+      <p>{{ site.data.resume.stack }}</p>
+    </section>
+    {% endif %}
   </main>
 
   <footer>
