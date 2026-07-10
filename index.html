@@ -22,58 +22,59 @@
   </header>
 
   <main>
-    {% if site.data.resume.about %}
-    <section id="about">
-      {{ site.data.resume.about | markdownify }}
-    </section>
-    {% endif %}
+    <section id="post">
+      <h2>Hopes &amp; Dreams</h2>
 
-    {% if site.data.resume.experience %}
-    <section id="experience">
-      <h2>Experience</h2>
-      {% for job in site.data.resume.experience %}
-      <div class="entry">
-        <div class="entry-header">
-          <span class="entry-title">{{ job.company }}{% if job.description %} <em class="entry-description">· {{ job.description }}</em>{% endif %}</span>
-          <span class="entry-meta">{{ job.location }}</span>
-        </div>
-        <div class="entry-header">
-          <span class="entry-title">{{ job.title }}</span>
-          <span class="entry-meta">{{ job.dates }}</span>
-        </div>
-        {% if job.bullets.size > 0 %}
-        <ul>
-          {% for bullet in job.bullets %}
-          <li>{{ bullet }}</li>
-          {% endfor %}
-        </ul>
-        {% endif %}
-      </div>
-      {% endfor %}
-    </section>
-    {% endif %}
+      <p>I'm a software engineer based in New York City.</p>
 
-    <section id="education">
-      <h2>Education</h2>
-      {% for edu in site.data.resume.education %}
-      <div class="entry">
-        <div class="entry-header">
-          <span class="entry-title">{{ edu.school }}</span>
-          <span class="entry-meta">{{ edu.location }}</span>
-        </div>
-        <div class="entry-header">
-          <span class="entry-degree">{{ edu.degree }}</span>
-          <span class="entry-meta">{{ edu.year }}</span>
-        </div>
-      </div>
-      {% endfor %}
+      <br />
+
+      <p>I have four years of experience, primarily on the backend, always at startups.</p>
+
+      <br />
+
+      <p>
+        My dream is to bootstrap a side project into a commercial open source software company.
+        Unfortunately, I haven't been able to come up with any ideas that haven't already been implemented more beautifully than I could ever hope to build them myself.
+      </p>
+
+      <br />
+
+      <p>Here are some examples of projects I wish I'd built:</p>
+      
+      <br />
+
+      <ul>
+        <li><a href="https://github.com/99designs/aws-vault">github.com/99designs/aws-vault</a></li>
+        <li><i>(I'll add more as I think of them)</i></li>
+      </ul>
+
+      <p>And here are some of my favorite COSS companies:</p>
+
+      <br />
+
+      <ul>
+        <li>Astral</li>
+        <li>Confluent</li>
+        <li>Docker</li>
+        <li>Hashicorp</li>
+        <li>LangChain</li>
+        <li>Ollama</li>
+        <li>Redis</li>
+      </ul>
+
+      <p>
+        If you've done this before and have any advice, I'd love to hear from you!
+        If you're currently building a COSS company yourself, perhaps you'd like to check out my <a href="/resume">resume</a>?
+      </p>
+
+      <br />
+
+      <p>
+        As I was making this list of COSS companies, I learned that more than one of them has been acquired by IBM.
+        Interesting...
+      </p>
     </section>
-    {% if site.data.resume.stack %}
-    <section id="stack">
-      <h2>Favorite Tools</h2>
-      <p>{{ site.data.resume.stack }}</p>
-    </section>
-    {% endif %}
   </main>
 
   <footer>
