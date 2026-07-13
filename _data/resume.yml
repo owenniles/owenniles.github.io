@@ -9,11 +9,13 @@ experience:
     dates: Dec 2022–Jun 2026
     description: The AI operating system for investment management
     bullets:
-      - Built ergonomic agent tools for Moment's portfolio rebalancing agent; partnered with product to distill the rebalancing workflow into discrete steps, then implemented composable building blocks that streamline how advisors propose bonds to improve client portfolio performance
-      - Led development and adoption of core bond analytics library across the stack, reliably delivering advanced spread analytics that were a hard requirement for a massive enterprise customer
+      - Iteratively redesigned MCP tools for Moment's portfolio construction agent based on patterns of misuse, enabling it to reliably research bonds that improve client portfolio performance
+      - Led full-stack initiatives to add real-time advanced bond spread analytics and tax-aware yields to the Moment platform, fulfilling a requirement from Moment's largest enterprise customer
       - Introduced oapi-codegen to generate type-safe server stubs from OpenAPI specs, eliminating drift between API docs and implementation
-      - Served as a primary contributor to Moment's first accounting system, which tracked more than $10B in fixed income holdings before it was replaced
-      - Implemented Moment's first FIX trading and trade booking integrations, which processed more than $1B in trading volume before they were replaced
+      - Distributed auto-generated Python protobuf bindings as a pip/uv-installable package, replacing a fragile manual workflow of copying bindings between applications
+      - Built a local testing workflow for Moment's AWS MWAA pipelines, cutting iteration time from hour-long cloud deployments to minutes
+      - Co-built Moment's first accounting system, a workhorse that tracked more than $10B in fixed income holdings for several years
+      - Implemented Moment's first FIX trading and trade booking integrations, which handled more than $1B in trading volume over several years of use
 
   - company: Whist
     title: Software Engineer
@@ -21,9 +23,9 @@ experience:
     dates: Sep 2020–Aug 2021; Jun 2022–Dec 2022
     description: A cloud-accelerated internet browser
     bullets:
-      - Customized the Amazon ECS container agent to deliver necessary runtime context to containerized browser tabs running on EC2 instances
-      - Introduced Auth0, replacing hand-written authentication flows and reducing security risk
-      - Integrated Stripe for subscription billing; implemented macOS codesigning pipeline for desktop app distribution
+      - Customized the Amazon ECS container agent to inject cookies and session context into containerized browser tabs, keeping users logged into their sites in Whist's cloud-streamed browser
+      - Replaced Whist's hand-rolled authentication flows with Auth0, trading custom auth code for a maintained, extensible provider
+      - Built Whist's Stripe billing integration and macOS codesigning pipeline for desktop app distribution
 
   - company: Harvard CS 61
     title: Teaching Fellow
@@ -31,7 +33,7 @@ experience:
     dates: Fall 2019
     description: Systems Programming and Machine Organization
     bullets:
-      - Taught weekly sections and office hours; graded problem sets and tests
+      - Taught weekly sections, held office hours, and graded problem sets and exams
 
   - company: Zoba
     title: Software Engineer Intern
@@ -48,4 +50,4 @@ education:
     location: Cambridge, MA
     year: "2022"
 
-stack: "Claude Code, Git & GitHub, Go, Docker, Postgres, TimescaleDB, Protobuf & gRPC, AWS, Linear, Python, Notion, Terraform"
+stack: "Git & GitHub, Go, Docker, Postgres, TimescaleDB, Protobuf & gRPC, AWS, Linear, Python, Notion, Terraform, TypeScript, React, Airflow"
