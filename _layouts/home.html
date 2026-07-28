@@ -1,0 +1,29 @@
+---
+layout: default
+---
+<div class="home">
+  <section class="intro prose">
+    {{ content }}
+  </section>
+
+  <section class="writing-preview">
+    <div class="section-heading">
+      <h2>Writing</h2>
+      <a href="/writing/">View all</a>
+    </div>
+
+    {% if site.posts.size > 0 %}
+      <ol class="post-list">
+        {% for post in site.posts limit:3 %}
+          <li class="post-list-item">
+            <a href="{{ post.url }}">{{ post.title }}</a>
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+            {% if post.description %}<p>{{ post.description }}</p>{% endif %}
+          </li>
+        {% endfor %}
+      </ol>
+    {% else %}
+      <p class="empty-state">Nothing published yet.</p>
+    {% endif %}
+  </section>
+</div>

@@ -1,4 +1,23 @@
 title: Owen Niles
+description: Software engineer in New York City writing about developer tools and building software.
+url: https://owenniles.com
+author:
+  name: Owen Niles
+  email: owenmniles@gmail.com
+
+permalink: /writing/:title/
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
 
 kramdown:
   smart_quotes: ["apos", "apos", "quot", "quot"]
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
