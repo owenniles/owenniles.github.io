@@ -1,0 +1,26 @@
+---
+layout: default
+title: Writing
+description: Notes on software, developer tools, and building things by Owen Niles.
+permalink: /writing/
+---
+<section class="writing-index">
+  <header class="page-header page-header--quiet">
+    <h1>Writing</h1>
+    <p>This is where I sometimes write about things I think about.</p>
+  </header>
+
+  {% if site.posts.size > 0 %}
+    <ol class="post-list">
+      {% for post in site.posts %}
+        <li class="post-list-item">
+          <a href="{{ post.url }}">{{ post.title }}</a>
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+          {% if post.description %}<p>{{ post.description }}</p>{% endif %}
+        </li>
+      {% endfor %}
+    </ol>
+  {% else %}
+    <p class="empty-state">Nothing published yet.</p>
+  {% endif %}
+</section>
